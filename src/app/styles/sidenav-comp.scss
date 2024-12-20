@@ -1,0 +1,83 @@
+// Variables
+$primary-background: #b0f6df;  // Light blue background
+$primary-color: #2c3e50;       // Dark blue-gray text color
+$accent-color: #3498db;        // Bright blue for CTA
+$hover-color: #2980b9;         // Darker blue for hover states
+$border-radius: 8px;           // Consistent border radius
+$transition-speed: 0.3s;       // Smooth transition duration
+
+.sideAdvertisement {
+  position: fixed;
+  right: 0;
+  top: 70px;
+  width: 200px;
+  height: calc(100% - 100px);
+  background-color: $primary-background;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  overflow-y: auto;
+//   background-color: red;
+
+@media (max-width: 1025px) {
+      display: none;  
+  }
+
+  &__closeBtn{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: darken($primary-color, 20%);
+    cursor: pointer;
+    transition: color $transition-speed;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    color: $primary-color;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  &__cta {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: $accent-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color $transition-speed;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}

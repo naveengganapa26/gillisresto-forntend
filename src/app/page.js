@@ -1,95 +1,161 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+
+import Geofencing from "./geofencing-offers/page";
 
 export default function Home() {
+ 
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div>
+     <Geofencing />
+    
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 'use client'
+// import Image from "next/image";
+// import styles from "./page.module.css";
+// import { useEffect, useState } from "react";
+
+// export default function Home() {
+ 
+//   const [location, setLocation] = useState(null);
+//   const [error, setError] = useState(null);
+//   const [content, setContent] = useState("Loading content based on your location...");
+
+//   useEffect(() => {
+//     // Get user's location
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const { latitude, longitude } = position.coords;
+//           setLocation({ latitude, longitude });
+//         },
+//         (err) => setError("Unable to fetch location. Please enable location services."),
+//         { timeout: 10000 }
+//       );
+//     } else {
+//       setError("Geolocation is not supported by your browser.");
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     if (location) {
+//       // Example: Fetch location-based content (using latitude and longitude)
+//       fetch(
+//         `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${location.latitude}&longitude=${location.longitude}&localityLanguage=en`
+//       )
+//         .then((res) => res.json())
+//         .then((data) => {
+//           console.log(data)
+//           if (data.city) {
+//             setContent(`Welcome to ${data.city}, ${data.countryName}!, ${data.postcode}`);
+//           } else {
+//             setContent("We couldn't fetch location details.");
+//           }
+//         })
+//         .catch(() => setContent("Error fetching location data."));
+//     }
+//   }, [location]);
+
+//   return (
+//     <div>
+//          <div style={{ textAlign: "center", marginTop: "50px" }}>
+//       <h1>Location-Based Content</h1>
+//       {error ? (
+//         <p style={{ color: "red" }}>{error}</p>
+//       ) : (
+//         <p>{content}</p>
+//       )}
+//     </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+// 'use client'
+// import { useEffect, useState } from "react";
+
+// export default function Home() {
+//   // Initialize with static latitude and longitude
+//   const [location, setLocation] = useState({ latitude: "12.9767", longitude: "77.5713" });
+//   const [error, setError] = useState(null);
+//   const [content, setContent] = useState("Loading content based on your location...");
+
+//   useEffect(() => {
+//     // If you want to override with browser location dynamically, you can uncomment below:
+//     /*
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const { latitude, longitude } = position.coords;
+//           setLocation({ latitude, longitude });
+//         },
+//         (err) => setError("Unable to fetch location. Please enable location services."),
+//         { timeout: 10000 }
+//       );
+//     } else {
+//       setError("Geolocation is not supported by your browser.");
+//     }
+//     */
+//   }, []);
+
+//   useEffect(() => {
+//     if (location) {
+//       // Fetch location-based content using static coordinates
+//       fetch(
+//         `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${location.latitude}&longitude=${location.longitude}&localityLanguage=en`
+//       )
+//         .then((res) => res.json())
+//         .then((data) => {
+//           console.log(data)
+//           if (data.city) {
+//             setContent(`Welcome to ${data.city}, ${data.countryName} (${data.postcode}).`);
+//           } else {
+//             setContent("We couldn't fetch location details.");
+//           }
+//         })
+//         .catch((error) => {
+//           console.error("Error fetching location data:", error);
+//           setContent("Error fetching location data.");
+//         });
+//     }
+//   }, [location]);
+
+//   return (
+//     <div style={{ textAlign: "center", marginTop: "50px" }}>
+//       <h1>Location-Based Content</h1>
+//       {error ? (
+//         <p style={{ color: "red" }}>{error}</p>
+//       ) : (
+//         <p>{content}</p>
+//       )}
+//     </div>
+//   );
+// }
+
+
