@@ -1,3 +1,36 @@
+# Geofencing with Next.js
+
+## Project Overview
+This project demonstrates a geofencing concept using **Next.js**. It identifies the current location of a device and retrieves restaurant information for the specific location. The project leverages modern web technologies, including **BigCloud API** for reverse geocoding and a custom backend to manage restaurant data.
+
+---
+
+## Features
+- **Location Fetching**: Uses the browser's `navigator.geolocation` API to retrieve the current coordinates of the laptop.
+- **Reverse Geocoding**: Converts latitude and longitude into a human-readable address (pincode) using the **BigCloud API**.
+- **Backend Integration**: Stores and manages restaurant data for various locations.
+- **Restaurant Display**: Fetches restaurants based on the identified pincode and displays them dynamically on the UI.
+
+---
+
+## Tech Stack
+- **Frontend**: [Next.js](https://nextjs.org/) for the UI framework.
+- **API**: [BigCloud API](https://bigcloud.com/) for reverse geocoding.
+- **Backend**: Custom backend for storing and serving restaurant data.
+
+---
+
+## Installation and Setup
+
+### Prerequisites
+- Node.js installed on your machine.
+- Access to a BigCloud API key.
+
+### Steps to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+
 link to view page - gillisresto.netlify.app
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
